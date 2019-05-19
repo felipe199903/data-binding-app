@@ -1,0 +1,77 @@
+<section>
+    <mat-card>
+        <mat-card-content>
+  <button mat-button color="primary" (click)="save()">Save</button>
+  <button mat-button color="warn" (click)="inc()">{{buttonName}}</button>
+    </mat-card-content>
+  </mat-card>     
+</section>
+
+<section>
+    <mat-card>
+        <mat-card-content>
+          <button mat-button color="primary" [disabled]="!btnEnable">My button 1</button>
+          <button mat-button color="warn" [disabled]="!btnEnable">My button 2</button>
+
+          <button mat-button color="warn" (click)="disable()">Disable</button>
+          <mat-progress-spinner
+            color="primary"
+            [mode]="spinnerMode"
+            value="0">
+          </mat-progress-spinner>
+    </mat-card-content>
+  </mat-card>    
+</section>
+
+<section>
+  <p>
+    <mat-card>
+      <mat-card-content>
+          <p>
+            <mat-checkbox color="warn" (change)="cbChange($event)">Disable / Enable</mat-checkbox>
+          </p>
+        <mat-form-field>
+          <mat-select matNativeControl required 
+            [disabled]="selectDisable" (selectionChange)="selectionChange($event)">
+            <mat-option value="1">Volvo</mat-option>
+            <mat-option value="2">Saab</mat-option>
+            <mat-option value="3">Mercedes</mat-option>
+            <mat-option value="4">Audi</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <p>Select option {{ selecteOption }}</p>
+  </mat-card-actions>
+  </mat-card>
+  </p>
+</section>
+
+<section>
+  <mat-card>
+    <mat-card-content>  
+    </mat-card-content>
+
+      <div class="example-container">
+
+        <mat-form-field>
+          <input matInput placeholder="First name"
+          (input)="inputFirstName = $event.target.value"
+          [value] = "inputFirstName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Last name"
+            (input)="inputLastName = $event.target.value"
+            [value] = "inputLastName">
+          </mat-form-field>
+
+        <mat-card-actions>
+          Full name: {{inputFirstName}} {{inputLastName}}
+        </mat-card-actions>
+        
+      </div>
+
+  </mat-card>
+</section>
